@@ -45,12 +45,14 @@ knowledge2 = And(
 # B says "A said 'I am a knave'."
 # B says "C is a knave."
 # C says "A is a knight."
-knowledge3 = And(Or(AKnight,AKnave),
+knowledge3 = And(
+    Or(AKnight,AKnave),
     Not(And(AKnight,AKnave)),
     Or(BKnight,BKnave),
     Not(And(BKnight,BKnave)),
     Or(CKnight,CKnave),
     Not(And(CKnight,CKnave)),
+    Or(Biconditional(AKnight,AKnight),Biconditional(AKnight,AKnave)),
     Biconditional(BKnight,Biconditional(AKnight,AKnave)),
     Biconditional(BKnight,CKnave),
     Biconditional(CKnight,AKnight)
